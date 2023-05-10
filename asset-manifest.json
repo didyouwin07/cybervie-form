@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/cybervie-form/static/css/main.ad9573f9.css",
+    "main.js": "/cybervie-form/static/js/main.9f81bfdc.js",
+    "static/js/787.28cb0dcd.chunk.js": "/cybervie-form/static/js/787.28cb0dcd.chunk.js",
+    "index.html": "/cybervie-form/index.html",
+    "main.ad9573f9.css.map": "/cybervie-form/static/css/main.ad9573f9.css.map",
+    "main.9f81bfdc.js.map": "/cybervie-form/static/js/main.9f81bfdc.js.map",
+    "787.28cb0dcd.chunk.js.map": "/cybervie-form/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ad9573f9.css",
+    "static/js/main.9f81bfdc.js"
+  ]
+}
