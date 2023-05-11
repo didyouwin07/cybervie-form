@@ -21,7 +21,8 @@ export const FORM_FIELDS = [
     },
     {
         name: "Work Experience",
-        inputType: "radio box"
+        inputType: "radio",
+        options: ["Fresher", "Experienced"]
     },
     {
         name: "Work Experience Details",
@@ -34,10 +35,5 @@ export const FORM_FIELDS = [
     {
         name: "Why Cybervie?",
         inputType: "text"
-    },
-    {
-        name: "How did you know about Cybervie?",
-        inputType: "text"
-    },
-
+    }
 ]

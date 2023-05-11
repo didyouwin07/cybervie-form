@@ -98,16 +98,103 @@ export default function FormPage() {
                   {field.name}
                 </label>
                 <div className={styles.formInput}>
-                  <input
-                    type={field.inputType}
-                    id={field.name}
-                    value={handleValue(idx)}
-                    onChange={(e) => handleChange(e, idx)}
-                  />
+                  {field.inputType === "text" ? (
+                    <input
+                      type={field.inputType}
+                      id={field.name}
+                      value={handleValue(idx)}
+                      onChange={(e) => handleChange(e, idx)}
+                    />
+                  ) : (
+                    <div className={styles.radioContainer}>
+                      {field.options.map((option) => (
+                        <div className={styles.radioChoice}>
+                          <input
+                            type="radio"
+                            id={option}
+                            checked={formDetails.workEx === option}
+                            onClick={() =>
+                              setFormDetails((prev) => {
+                                return { ...prev, workEx: option };
+                              })
+                            }
+                          />
+                          <label htmlFor={option}>{option}</label>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             );
           })}
+          <div className={styles.finalQuestionContainer}>
+            <label htmlFor={"howCybervie"} className={styles.formLabel}>
+              How did you know about Cybervie?
+            </label>
+            <div className={styles.formInput}>
+              <div className={styles.radioContainer}>
+                <div className={styles.radioChoice}>
+                  <input
+                    type="radio"
+                    id={"Referral"}
+                    checked={formDetails.howCyberView === "Referral"}
+                    onClick={() =>
+                      setFormDetails((prev) => {
+                        return { ...prev, howCyberView: "Referral" };
+                      })
+                    }
+                  />
+                  <label htmlFor={"Referral"}>{"Referral"}</label>
+                </div>
+                <div className={styles.radioChoice}>
+                  <input
+                    type="radio"
+                    id={"Web"}
+                    checked={formDetails.howCyberView === "Web"}
+                    onClick={() =>
+                      setFormDetails((prev) => {
+                        return { ...prev, howCyberView: "Web" };
+                      })
+                    }
+                  />
+                  <label htmlFor={"Web"}>{"Web"}</label>
+                </div>
+                <div className={styles.radioChoice}>
+                  <input
+                    type="radio"
+                    id={"Others"}
+                    checked={
+                      formDetails.howCyberView !== "Referral" &&
+                      formDetails.howCyberView !== "Web"
+                    }
+                    onClick={() =>
+                      setFormDetails((prev) => {
+                        return { ...prev, howCyberView: "Others" };
+                      })
+                    }
+                  />
+                  <label htmlFor={"Others"}>{"Others"}</label>
+                </div>
+                <div className={styles.inputBox}>
+                  <input
+                    type={"text"}
+                    value={formDetails.howCyberView}
+                    onChange={
+                      formDetails.howCyberView !== "Referral" &&
+                      formDetails.howCyberView !== "Web"
+                        ? (e) => {
+                            setFormDetails((prev) => {
+                              return { ...prev, howCyberView: e.target.value };
+                            });
+                          }
+                        : () => {}
+                    }
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
           <div className={styles.buttonsContainer}>
             <div className={styles.submitButton}>Submit</div>
             <div
